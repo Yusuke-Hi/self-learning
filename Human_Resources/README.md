@@ -5,10 +5,20 @@ BigQueryでデータを扱えるかどうかが機械学習エンジニア/デ�
 # データセット
 データセットはKaggleの"Human Resources Data Set"を使用します。URLは下記のとおりです。
 https://www.kaggle.com/datasets/rhuebner/human-resources-data-set
+このデータセットはHuman Resourceに関するプロフェッショナルを育てるために作成されたデータです。
+各変数の設はい以下の表のとおりです。
+
+|特徴量|内容|データ型|
+|-----|----|-------|
+|Employee Name|労働者の名前|text|
+|EmpID|労働者のID|text|
+|MarriedID|1:既婚者, 0:未婚者|binary|
+|MaritalStatusID|
+
 
 ## このデータセットを選んだ理由
 ・欠損値を含んでいるため、前処理の練習になる\
-・データ内容に興味がある、有益な知見が得られるかもしれない\
+・単純に興味がある分野、考察が楽しそう
 
 # BigQueryでの操作
 ### プロジェクトの作成
