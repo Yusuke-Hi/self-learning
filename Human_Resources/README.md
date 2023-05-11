@@ -11,6 +11,7 @@ https://www.kaggle.com/datasets/rhuebner/human-resources-data-set
 ・データ内容に興味がある、有益な知見が得られるかもしれない\
 
 # BigQueryでの操作
-## プロジェクトの作成
+### プロジェクトの作成
 
+###
 
