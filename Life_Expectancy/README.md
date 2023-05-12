@@ -9,23 +9,23 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 このデータセットは世界保健機関(WHO)が2000年から2015年にかけて世界193ヵ国の平均寿命と健康要因を調査したものです。\
 各変数の説明は以下の表のとおりです。
 
-|変数|説明|
-|-----|----|
-|Country|
-|Year|
-|Status|
-|Life expectancy|
-|Adult Mortality|
-|infant deaths|
-|Alcohol|
-|percentage expenditure|
-|Hepatitis B|
-|Measles|
+|変数|説明|データ型|
+|-----|----|-----|
+|Country|国名|文字型|
+|Year|西暦年|整数型|
+|Status|途上国か先進国か|文字型|
+|Life expectancy|平均寿命|浮動小数点型|
+|Adult Mortality|15~60歳の1000人当たりの死者数|整数型|
+|infant deaths|乳幼児の1000人当たりの死者数|整数型|
+|Alcohol|1人当たりのアルコール摂取量(純アルコール)|浮動小数点型|
+|percentage expenditure|1人当たり国内総生産に占める医療費の割合(%)|浮動小数点型|
+|Hepatitis B|1歳児のB型肝炎（HepB）予防接種率（%）|浮動小数点型|
+|Measles|1000人あたりの麻疹の報告症例数|整数型|
 
 
 ## このデータセットを選んだ理由
 ・欠損値を含んでいるため、前処理の練習になる\
-・現実のデータを対象にデータ分析を実践したい\
+・現実のデータを対象にデータ分析を実践したかった\
 ・単純に興味がある分野、考察が楽しそう
 
 # BigQueryでの操作
