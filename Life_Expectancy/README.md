@@ -54,6 +54,10 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 csvファイルをBigQueryにアップロードしてSQLテーブルを作成します。\
 <img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/ace7d5e8-d5f3-4171-b531-18e10e60945d" width=500>
 
+列名、データ型、説明を入力
+<img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2bed2022-acdb-4448-a26c-4d1ae6b66148" width=500>
+
+
 ## 前処理/SQLクエリ
 
 
