@@ -29,8 +29,21 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 ・単純に興味がある分野、考察が楽しそう
 
 # BigQueryでの操作
+## 準備
 ### プロジェクトの作成
+"Life Expectancy"という名前でプロジェクトを作成します。\
+<img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/919d61b7-cd8b-410f-9ee2-1262b58a8842" width=500>
 
-###
+### データセットの作成
+"Life_Ecpectancy"という名前でデータセットを作成します。（スペースは使えない）\
+<img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e32f5e65-e7b2-44f1-9b33-6f883c7e66e6" width=500>
+
+### テーブルの作成
+csvファイルをBigQueryにアップロードしてSQLテーブルを作成します。\
+<img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/ace7d5e8-d5f3-4171-b531-18e10e60945d" width=500>
+
+## 前処理/SQLクエリ
+
+
 
 
