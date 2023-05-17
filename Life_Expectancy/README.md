@@ -80,6 +80,15 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 ・検証
 
 ## BigQueryで前処理
+### データ概要
+テーブルのストレージ情報から行数は2938であることが確認でき、このデータセットは上記の列数22と合わせて\
+2938行22列のテーブルデータであることがわかります。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e1aa2f5c-9ae0-4d67-bf76-9874d5546a72" width = 500>
+
+プレビュータブからテーブルデータを確認することができます。\
+今回の目的変数は画像の中列あたりにある"Life_Expectancy"です。\
+<image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/a7623d88-eea3-413c-9ad9-8e5d133ac730" width = 500>
+
 
 
 
