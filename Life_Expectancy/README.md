@@ -40,7 +40,7 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 ・データそのものに興味があった\
 ・実データから有益な知見が得られるかもしれないと期待した
 
-# BigQueryでの操作
+# BigQueryで下準備
 ## 準備
 ### プロジェクトの作成
 "Life Expectancy"という名前でプロジェクトを作成します。\
@@ -54,9 +54,25 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 csvファイルをBigQueryにアップロードしてSQLテーブルを作成します。\
 <img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/ace7d5e8-d5f3-4171-b531-18e10e60945d" width=500>
 
-列名、データ型、説明を入力
+列名、データ型、説明を入力\
 <img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2bed2022-acdb-4448-a26c-4d1ae6b66148" width=500>
 
+# データ分析のゴールと計画
+## ゴール：平均寿命予測モデルの作成
+まずゴールはから設定しようと思います。\
+今回のデータ分析のゴールは平均寿命予測モデルの作成とします。
+## 計画
+現在地：BigQueryにデータがある → ゴール：平均寿命予測モデルの作成\
+現在地からゴールまでの計画を立てたいと思います。
+## 1.BigQueryで前処理
+今回の実践の目的であるBigQueryでのデータ前処理を行います。\
+・データクレンジング\
+欠損値や誤値があれば対応します。\
+・データの絞り込み\
+使用するデータには2000年から2015年までの16年分のデータがあります。\
+今回は2011年から2015年までの5年分に絞ってからPythonでデータ分析を行います。\
+
+## 2.Pythonによるデータ分析
 
 ## 前処理/SQLクエリ
 
