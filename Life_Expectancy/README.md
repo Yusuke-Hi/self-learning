@@ -14,7 +14,7 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 |Country|国名|文字型|
 |Year|西暦年|整数型|
 |Status|途上国か先進国か|文字型|
-|Life_Expectancy|平均寿命|浮動小数点型|
+|Life_Expectancy_column|平均寿命|浮動小数点型|
 |Adult_Mortality|15~60歳の1000人当たりの死者数|浮動小数点|
 |Infant_Deaths|乳幼児の1000人当たりの死者数|整数型|
 |Alcohol|1人当たりのアルコール摂取量(純アルコール)|浮動小数点型|
@@ -89,7 +89,7 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 今回の目的変数は画像の中列あたりにある"Life_Expectancy"です。\
 <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/a7623d88-eea3-413c-9ad9-8e5d133ac730" width = 500>
 
- #### 欠損値の確認
+ ### 欠損値の確認
   adult_mortalityフィールドに対して欠損値の数をカウントすると以下のようになり、10レコードであることが確認できます。\
  <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/f0d2cb2e-9b2f-48ea-ac4b-3566ae653618" width = 500>\
 上記を全フィールドに実施して表にまとめると以下のようになります。\
@@ -98,7 +98,7 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 |Country|0|
 |Year|0|
 |Status|0|
-|Life_Expectancy|10|
+|Life_Expectancy_column|10|
 |Adult_Mortality|10|
 |Infant_Deaths|0|
 |Alcohol|194|
@@ -118,4 +118,15 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 |Income_Composition_Of_Resources|167|
 |Schooling|163|
 
+### 欠損値の処理
+上記で確認した欠損値に対して各フィールドごとに対応します。\
+  \
+ ・Life_Expectancy_columnとAdult_Mortality\
+  この2つのフィールドの欠損値数がともに10であることから、Life_Expectancy_columnがnullのレコードを表示しました。\
+  <image src= "https://github.com/Yusuke-Hi/self-learning/assets/131725916/ca1701bc-9dac-4f49-9769-fa4af2d473c4" width = 500>\
+   上記の結果からLife_Expectancy_columnがnullである全レコードはAdult_Mortalityがすべてnullであることがわかります。\
+   今回の目的変数はLife_Expectancy_columnであり、モデルの作成、検証、最終評価に使用するため、Life_Expectancy_columnがnull(Adult_Mortalityもnull)のレコードは削除します。\
+<image src ="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2f80a06a-f6e0-4c95-a4ed-6b40aad73f8f" width=500>
 
+ Adult_Mortalityに欠損があるレコードのカウント数を表示すると0であることが確認できます。\
+<image src ="https://github.com/Yusuke-Hi/self-learning/assets/131725916/9847b84e-eadf-4c58-b7e6-445f055b5dc0" width =500>
