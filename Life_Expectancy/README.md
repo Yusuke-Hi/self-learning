@@ -1,5 +1,5 @@
 # 目的
-この学習の目的はBigQueryでSQLを使って前処理を行い、データ分析を実施することです。\
+この学習の目的はBigQueryでSQLを使ってデータを抽出し、データ分析を実施することです。\
 BigQueryでデータを扱えることが機械学習エンジニア/データサイエンティストのデファクトスタンダードになりつつあると知り、実践することにしました。
 
 # データセット
@@ -64,22 +64,22 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 ## 計画
 現在地：BigQueryにデータがある → ゴール：平均寿命予測モデルの作成\
 現在地からゴールまでの計画を立てたいと思います。
-## 1.BigQueryで前処理
-今回の実践の目的であるBigQueryでのデータ前処理を行います。\
-・データクレンジング\
-欠損値や誤値があれば対応します。\
-・データの絞り込み\
-使用するデータには2000年から2015年までの16年分のデータがあります。\
-今回は2011年から2015年までの5年分に絞ってからPythonでデータ分析を行います。\
+## 1.BigQueryでデータ抽出
+今回の実践の目的であるBigQueryでのデータの抽出を行います。\
+今回は2000年から2015年までの16年分のデータがあります。\
+今回は2010年から2014年までの5年分に絞ってからPythonでデータ分析を行います。\
+2010年~2013年分のデータをモデル作成のための訓練、検証データとします。\
+2014年分のデータを作成するモデルの最終評価に使用します。
 
 ## 2.Pythonによるデータ分析
+・データ前処理\
 ・可視化\
 ・特徴量生成\
 ・訓練データ、検証データの分離\
 ・モデルチューニングモデル作成\
-・検証
-
-## BigQueryで前処理
+・検証\
+・モデルの最終評価
+## BigQueryでデータ抽出
 ### データの概要
 テーブルのストレージ情報から行数は2938であることが確認でき、このデータセットは上記の列数22と合わせて\
 2938行22列のテーブルデータであることがわかります。\
@@ -89,44 +89,6 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 今回の目的変数は画像の中列あたりにある"Life_Expectancy"です。\
 <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/a7623d88-eea3-413c-9ad9-8e5d133ac730" width = 500>
 
- ### 欠損値の確認
-  adult_mortalityフィールドに対して欠損値の数をカウントすると以下のようになり、10レコードであることが確認できます。\
- <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/f0d2cb2e-9b2f-48ea-ac4b-3566ae653618" width = 500>\
-上記を全フィールドに実施して表にまとめると以下のようになります。\
-|フィールド名|欠損値数|
-|-----------|-------|
-|Country|0|
-|Year|0|
-|Status|0|
-|Life_Expectancy_column|10|
-|Adult_Mortality|10|
-|Infant_Deaths|0|
-|Alcohol|194|
-|Percentage_Expenditure|0|
-|Hepatitis_B|553|
-|Measles|0|
-|BMI|34|
-|Under_Five_Deaths|0|
-|Polio|19|
-|Total_Expenditure|226|
-|Diphtheria|19|
-|HIV_AIDS|0|
-|GDP|448|
-|PopulationSchooling_Years|652|
-|Thinness_1-19_Years|34|
-|Thinness_5-9_Years|34|
-|Income_Composition_Of_Resources|167|
-|Schooling|163|
-
-### 欠損値の処理
-上記で確認した欠損値に対して各フィールドごとに対応します。\
-  \
- ・Life_Expectancy_columnとAdult_Mortality\
-  この2つのフィールドの欠損値数がともに10であることから、Life_Expectancy_columnがnullのレコードを表示しました。\
-  <image src= "https://github.com/Yusuke-Hi/self-learning/assets/131725916/ca1701bc-9dac-4f49-9769-fa4af2d473c4" width = 500>\
-   上記の結果からLife_Expectancy_columnがnullである全レコードはAdult_Mortalityがすべてnullであることがわかります。\
-   今回の目的変数はLife_Expectancy_columnであり、モデルの作成、検証、最終評価に使用するため、Life_Expectancy_columnがnull(Adult_Mortalityもnull)のレコードは削除します。\
-<image src ="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2f80a06a-f6e0-4c95-a4ed-6b40aad73f8f" width=500>
-
- Adult_Mortalityに欠損があるレコードのカウント数を表示すると0であることが確認できます。\
-<image src ="https://github.com/Yusuke-Hi/self-learning/assets/131725916/9847b84e-eadf-4c58-b7e6-445f055b5dc0" width =500>
+ ### データの抽出
+ 
+ 
