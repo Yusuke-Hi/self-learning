@@ -1,5 +1,5 @@
 # 目的
-このデータ分析の目的はBigQueryでSQLを使って前処理を行い、データ分析を実施することです。\
+この学習の目的はBigQueryでSQLを使って前処理を行い、データ分析を実施することです。\
 BigQueryでデータを扱えることが機械学習エンジニア/データサイエンティストのデファクトスタンダードになりつつあると知り、実践することにしました。
 
 # データセット
@@ -14,24 +14,24 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 |Country|国名|文字型|
 |Year|西暦年|整数型|
 |Status|途上国か先進国か|文字型|
-|Life expectancy|平均寿命|浮動小数点型|
-|Adult Mortality|15~60歳の1000人当たりの死者数|浮動小数点|
-|infant deaths|乳幼児の1000人当たりの死者数|整数型|
+|Life_Expectancy|平均寿命|浮動小数点型|
+|Adult_Mortality|15~60歳の1000人当たりの死者数|浮動小数点|
+|Infant_Deaths|乳幼児の1000人当たりの死者数|整数型|
 |Alcohol|1人当たりのアルコール摂取量(純アルコール)|浮動小数点型|
-|percentage expenditure|1人当たり国内総生産に占める医療費の割合(%)|浮動小数点型|
-|Hepatitis B|1歳児のB型肝炎（HepB）予防接種率（%）|浮動小数点型|
+|Percentage_Expenditure|1人当たり国内総生産に占める医療費の割合(%)|浮動小数点型|
+|Hepatitis_B|1歳児のB型肝炎（HepB）予防接種率（%）|浮動小数点型|
 |Measles|1000人あたりの麻疹の報告症例数|整数型|
 |BMI|人口全体の平均BMI|浮動小数点型|
-|under-five deaths|人口1000人当たりの5歳未満死亡者数|整数型|
+|Under_Five_Deaths|人口1000人当たりの5歳未満死亡者数|整数型|
 |Polio|1歳児のポリオ（Pol3）予防接種率（%）|浮動小数点型|
-|Total expenditure|総政府支出に占める医療への一般政府支出の割合 (%)|浮動小数点型|
+|Total_Expenditure|総政府支出に占める医療への一般政府支出の割合 (%)|浮動小数点型|
 |Diphtheria|1歳児におけるジフテリア破傷風トキソイドおよび百日咳（DTP3）予防接種率（%）|浮動小数点型|
-|HIV/AIDS|出生 1,000 人当たりの死亡数 HIV/AIDS (0 ～ 4 歳)|浮動小数点型|
+|HIV_AIDS|出生 1,000 人当たりの死亡数 HIV/AIDS (0 ～ 4 歳)|浮動小数点型|
 |GDP|一人当たり国内総生産（米ドル）|浮動小数点型|
-|PopulationSchooling years|国の人口|浮動小数点型|
-|thinness 1-19 years|10歳から19歳までの小児および青少年の痩せの有病率 (%)|浮動小数点型|
-|thinness 5-9 years|5～9歳の子供の痩せの有病率(%)浮動小数点型|浮動小数点型|
-|Income composition of resources|資源の所得構成に関する人間開発指数 (0 から 1 の範囲の指数)|浮動小数点型|
+|PopulationSchooling_Years|国の人口|浮動小数点型|
+|Thinness_1-19_Years|10歳から19歳までの小児および青少年の痩せの有病率 (%)|浮動小数点型|
+|Thinness_5-9_Years|5～9歳の子供の痩せの有病率(%)浮動小数点型|浮動小数点型|
+|Income_Composition_Of_Resources|資源の所得構成に関する人間開発指数 (0 から 1 の範囲の指数)|浮動小数点型|
 |Schooling|就学年数(年)|浮動小数点型|
 
 ## このデータセットを選んだ理由
@@ -80,7 +80,7 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 ・検証
 
 ## BigQueryで前処理
-### データ概要
+### データの概要
 テーブルのストレージ情報から行数は2938であることが確認でき、このデータセットは上記の列数22と合わせて\
 2938行22列のテーブルデータであることがわかります。\
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e1aa2f5c-9ae0-4d67-bf76-9874d5546a72" width = 500>
@@ -89,7 +89,33 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
 今回の目的変数は画像の中列あたりにある"Life_Expectancy"です。\
 <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/a7623d88-eea3-413c-9ad9-8e5d133ac730" width = 500>
 
-
-
+ #### 欠損値の確認
+  adult_mortalityフィールドに対して欠損値の数をカウントすると以下のようになり、10レコードであることが確認できます。\
+ <image src = "https://github.com/Yusuke-Hi/self-learning/assets/131725916/f0d2cb2e-9b2f-48ea-ac4b-3566ae653618" width = 500>\
+上記を全フィールドに実施して表にまとめると以下のようになります。\
+|フィールド名|欠損値数|
+|-----------|-------|
+|Country|0|
+|Year|0|
+|Status|0|
+|Life_Expectancy|10|
+|Adult_Mortality|10|
+|Infant_Deaths|0|
+|Alcohol|194|
+|Percentage_Expenditure|0|
+|Hepatitis_B|553|
+|Measles|0|
+|BMI|34|
+|Under_Five_Deaths|0|
+|Polio|19|
+|Total_Expenditure|226|
+|Diphtheria|19|
+|HIV_AIDS|0|
+|GDP|448|
+|PopulationSchooling_Years|652|
+|Thinness_1-19_Years|34|
+|Thinness_5-9_Years|34|
+|Income_Composition_Of_Resources|167|
+|Schooling|163|
 
 
