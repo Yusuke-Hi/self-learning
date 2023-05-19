@@ -28,7 +28,7 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 |Diphtheria|1歳児におけるジフテリア破傷風トキソイドおよび百日咳（DTP3）予防接種率（%）|浮動小数点型|
 |HIV_AIDS|出生 1,000 人当たりの死亡数 HIV/AIDS (0 ～ 4 歳)|浮動小数点型|
 |GDP|一人当たり国内総生産（米ドル）|浮動小数点型|
-|PopulationSchooling_Years|国の人口|浮動小数点型|
+|Population|国の人口|浮動小数点型|
 |Thinness_1-19_Years|10歳から19歳までの小児および青少年の痩せの有病率 (%)|浮動小数点型|
 |Thinness_5-9_Years|5～9歳の子供の痩せの有病率(%)浮動小数点型|浮動小数点型|
 |Income_Composition_Of_Resources|資源の所得構成に関する人間開発指数 (0 から 1 の範囲の指数)|浮動小数点型|
