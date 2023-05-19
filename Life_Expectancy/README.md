@@ -92,6 +92,6 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
  ### データの抽出
  2010年から2014年までのデータを抽出するためにwhere句でデータを絞り込んでいます。\
  また、国名昇順、年度降順にするためにorder by句を使用しました。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b25049e6-57bf-46bb-8ddc-1716e42392c4" width=500>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/842f79e9-b454-43e6-afce-dab6e808ecd0" width=500>\
  抽出したデータを保存します。\
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e501beca-ad10-4ccc-8d1e-c49a8a40fe9a" width = 500>
