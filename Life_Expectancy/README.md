@@ -97,7 +97,7 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
  ## Python
  Pythonによるデータ分析を以下のように実施し、平均寿命を予測するモデルを作成しました\
  詳しくはjupyterファイルを参照ください
- ### 使用したモジュール/パッケージ
+ ### 使用したライブラリ
  Pnadas, NumPy, Matplotlib, Seaborn, ,optuna\
  Scikit-Learn(decomposition.PCA, preprocessing.StandardScaler,model_selection.train_test_split,\
  model_selection.KFold, metrics.mean_squared_error, linear_model.Ridge, svm.SVR, tree.DecisionTreeRegressor)\
@@ -124,9 +124,9 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
          ・重みの最適化
  
  # 所感
- BigQueryを実践的に学ぶことを目的にこの取り組みを始めました\
- 基本的なBigQueryの使用法はわかりましたが、GCPの他サービスとの連携などについてもこれから学んでいきたいです\
+ BigQueryを実践的に学ぶことを目的にこの取り組みを始めました。\
+ 基本的なBigQueryの使用法はわかりましたが、GCPの他サービスとの連携などについてもこれから学んでいきたいです。\
  Pythonで行ったデータ分析では前処理に多くの時間を割きましたが、
- 欠損値の補完方法、特徴量の生成など、まだまだ至らない点があるだろうなという感覚を覚えました\
+ 欠損値の補完方法、特徴量の生成など、まだまだ至らない点があるだろうなという感覚を覚えました。\
  モデリングではoputunaを使用してパラメータやアンサンブルの重みを最適化してモデルを構築しましたが、\
- oputunaのアルゴリズムとして使われているベイズ最適化やベイズ統計学についても今後学んでいきたいです
+ oputunaのアルゴリズムとして使われているベイズ最適化やベイズ統計学についても今後学んでいきたいです。
