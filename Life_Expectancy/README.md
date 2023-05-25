@@ -98,13 +98,16 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
  Pythonによるデータ分析を以下のように実施し、平均寿命を予測するモデルを作成しました\
  詳しくはjupyterファイルを参照ください
  ### 使用したモジュール/パッケージ
- Pnadas, NumPy, Matplotlib, Seaborn, Scikit-Learn, optuna
+ Pnadas, NumPy, Matplotlib, Seaborn, ,optuna\
+ Scikit-Learn(decomposition.PCA, preprocessing.StandardScaler,model_selection.train_test_split,\
+ model_selection.KFold, metrics.mean_squared_error, linear_model.Ridge, svm.SVR, tree.DecisionTreeRegressor)\
  
  ### データに対する仮説を立てる
  ### 前処理
      ・可視化
      ・欠損値補完
      ・特徴量生成 
+          ・主成分分析
      ・特徴量の除外
      ・カテゴリーデータの数値化(One-Hot-Encoding)
      ・標準化
