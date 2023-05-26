@@ -35,9 +35,9 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 |Schooling|就学年数(年)|浮動小数点型|
 
 ## このデータセットを選んだ理由
-・欠損値を含んでいるため、前処理の練習になると思った\
-・現実のデータを対象にデータ分析を実践したかった\
-・データそのものに興味があった
+・欠損値を含んでいるため、前処理の練習になると思った。\
+・現実のデータを対象にデータ分析を実践したかった。\
+・データそのものに興味があった。
 
 # BigQueryで準備
 ## 準備
@@ -92,11 +92,12 @@ csvファイルをBigQueryにアップロードしてSQLテーブルを作成し
  また、国名昇順、年度降順にするためにorder by句を使用しました。\
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/842f79e9-b454-43e6-afce-dab6e808ecd0" width=500>\
  抽出したデータを保存します。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e501beca-ad10-4ccc-8d1e-c49a8a40fe9a" width = 500>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e501beca-ad10-4ccc-8d1e-c49a8a40fe9a" width = 500>\
+ 抽出したcsvファイルは同ディレクトリ内の"life_expectancy_2010-2014.csv"です。
  
  ## Python
- Pythonによるデータ分析を以下のように実施し、平均寿命を予測するモデルを作成しました\
- ※データ分析を実施したファイルは同ディレクトリ内の"データ分析.ipynb"です
+ Pythonによるデータ分析を以下のように実施し、平均寿命を予測するモデルを作成しました。\
+ ※データ分析を実施したファイルは同ディレクトリ内の"データ分析.ipynb"です。
  ### 使用したライブラリ
  Pnadas, NumPy, Matplotlib, Seaborn, ,optuna\
  Scikit-Learn(decomposition.PCA, preprocessing.StandardScaler,model_selection.train_test_split,\
