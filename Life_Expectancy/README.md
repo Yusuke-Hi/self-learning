@@ -1,6 +1,10 @@
 # 目的
-この学習の目的はBigQueryでSQLを使ってデータを抽出し、データ分析を実施することです。\
-BigQueryでデータを扱えることが機械学習エンジニア/データサイエンティストのデファクトスタンダードになりつつあると知り、実践することにしました。
+この学習の目的は以下の二つです。\
+・BigQueryの基本的な使い方を実践的に学ぶ。\
+・データ分析を実データに対して実施する。\
+\
+BigQueryでデータを扱えることが機械学習エンジニア/データサイエンティストのデファクトスタンダードになりつつあると知り、実践することにしました。\
+また、これまで学習してきたデータ分析を実践的にアウトプットしたいと考え、実データに対して取り組むことにしました。
 
 # データセット
 データセットはKaggleの"Life Expectancy(WHO)"を使用します。URLは下記のとおりです。\
@@ -40,7 +44,6 @@ https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who?select=Life+Exp
 ・データそのものに興味があった。
 
 # BigQueryで準備
-## 準備
 ### プロジェクトの作成
 "Life Expectancy"という名前でプロジェクトを作成します。\
 <img src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/919d61b7-cd8b-410f-9ee2-1262b58a8842" width=500>
