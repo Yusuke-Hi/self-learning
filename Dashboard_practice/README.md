@@ -10,6 +10,9 @@ URL: https://www.kaggle.com/datasets/michau96/popularity-of-games-on-steam/code
 
 実際に書いたコードはディレクトリ内の"steam_dashboard.ipynb"にあります。
 
+## 使用したライブラリ
+Pandas, NumPy, Plotly(go), Dash(dcc, html, Input, Output)
+
 # ダッシュボード
 ## 全期間の販売数ランキング
 全ゲームの総販売数の10位までの総売上数を表示しています。\
@@ -23,5 +26,7 @@ URL: https://www.kaggle.com/datasets/michau96/popularity-of-games-on-steam/code
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/ef3a7709-06ba-4ee6-a9d9-18ef3e6d4730" width=800>
 
 # 所感
-ダッシュボードというものを初めて作成しました。\
+今回ダッシュボードというものを初めて作成しました。\
+初めて使用したライブラリが多く、エラーが出たときにどこがおかしいか確認するのに苦労しましたが、
+調べながら少しずつ作っていく楽しさがありました。
 
