@@ -2,31 +2,49 @@
 この学習の目的はPythonによるダッシュボード作成を実践することです。
 
 # データセット
-今回使用するデータは"Steam"における月ごとのゲームの売上数に関するものです。
+ホテルのお客様の宿泊予約がキャンセルされるか、されないかに関するデータセットを使います。
 
-※SteamはPCゲームやゲームソフトウェアの販売やゲームプラットフォームの提供などを行っている会社です。\
-"Popularity of games on Steam"\
-URL: https://www.kaggle.com/datasets/michau96/popularity-of-games-on-steam/code
-
-実際に書いたコードはディレクトリ内の"steam_dashboard.ipynb"にあります。
+実際に書いたコードはディレクトリ内の"Code_Dashboard.ipynb"にあります。
 
 ## 使用したライブラリ
-Pandas, NumPy, Plotly(go), Dash(dcc, html, Input, Output)
+Pandas, Plotly(go), Dashです。
 
 # ダッシュボード
-## 全期間の販売数ランキング
-全ゲームの総販売数の10位までの総売上数を表示しています。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a8550e04-d1ed-4a1d-983c-205455beaa30" width=800>
+## 全体像
+全体像は以下の画像のようになっております。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/4e5c5118-7f40-452c-b3bb-8d98d2d1f723" width=800>
 
-## 販売数の推移
-上に示した10タイトルをドロップダウンで選択し、発売から2021年2月までの販売数の推移を描画します。
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2cdff5b0-be41-458f-b584-d7e515ec75fd" width=800>\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/f6e9bec9-fdaa-4bd8-9afc-92fc4635218d" width=800>\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/4bd530bf-3bf5-4d95-8d05-1e6c2bfc5ea4" width=800>\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/ef3a7709-06ba-4ee6-a9d9-18ef3e6d4730" width=800>
+## 左上
+キャンセルされた件数とキャンセルされなかった件数のパーセンテージを円グラフで表示しています。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/000b697a-16c0-41da-9e0a-a959fdde88e1" width=800>
+
+## 左下
+ドロップダウンで選択した特徴量の組み合わせの散布図が表示されます。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7257a385-03f7-4b0e-8286-576e488e8247" width=800>
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e2260c34-d93a-4dc1-af41-74692e0fa503" width=800>
+
+
+## 右上
+ドロップダウンで選択した特徴量の棒グラフが表示されます。\
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/5b55fded-f5e3-4500-b063-7b318b97c9d5" width=800>
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8f8f917c-4610-4281-a8e9-018821e0a2f7" width=800>
+
+
+
+## 右下
+ドロップダウンで選択した特徴量のヒストグラムが表示されます。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/1f48ebe5-59a0-4b7f-b5ce-f89286d4f0e4" width=800>
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/acc6a008-b092-4249-ab63-a0c01fd2df82" width=800>
+
+
+
 
 # 所感
 今回ダッシュボードというものを初めて作成しました。\
-初めて使用したライブラリが多く、エラーが出たときにどこがおかしいか確認するのに苦労しましたが、
-調べながら少しずつ作っていく楽しさがありました。
+Plotlyを使うことによるインタラクティブを作るためにコールバックという機能を用いましたが、初めてのことだったので動作を確認しながら少しづつ組み立てていきました。\
+また、レイアウトや配色の調整作業などは地道な作業でしたが、少しづつ完成に近づいていく感覚が楽しかったです。
 
