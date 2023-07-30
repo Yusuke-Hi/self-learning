@@ -1,0 +1,5 @@
+#GAEの設定ファイル。
+#インスタンスクラスやスケーリングの条件などを記載する
+#runtimeは必須パラメータ
+runtime: python38
+entrypoint: gunicorn -b :$PORT main:app

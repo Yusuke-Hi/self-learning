@@ -1,0 +1,7 @@
+# サードパーティーモジュール
+Flask
+scikit-learn
+pandas>=2.0.2
+google-cloud-storage
+numpy>=1.24.0
+gunicorn

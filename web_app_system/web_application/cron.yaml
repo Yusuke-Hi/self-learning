@@ -1,0 +1,5 @@
+cron:
+- description: "Weekly task"  # cronジョブの説明
+  url: /reflection  # Flaskアプリで処理したいエンドポイントのURL
+  schedule: every friday 13:30 # 週に1回実行、毎週金曜日の13:30
+  timezone: Asia/Tokyo  # タイムゾーンを設定（日本のタイムゾーンを使用）
