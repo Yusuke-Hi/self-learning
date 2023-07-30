@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>中古車の市場価格予測</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+  <h1>中古車の市場価格を予測</h1>
+  <h2>お車の情報を選択/入力してください</h2>
+  <form method="POST" action="/prediction">
+    <label for="maker">メーカー：</label>
+    <select id="maker" name="maker" onchange="updateCarDropdown()">
+      <option value="" selected>選択してください</option>
+      {% for maker in maker_list %}
+      <option value="{{ maker }}">{{ maker }}</option>
+      {% endfor %}
+    </select>
+    <br>
+
+    <label for="car">車種：</label>
+    <select id="car" name="car" onchange="updateGradeDropdown()">
+      <option value="" selected>選択してください</option>
+      <!-- ここに車種のオプションが追加される -->
+    </select>
+    <br>
+
+    <label for="grade">グレード：</label>
+    <select id="grade" name="grade" onchange="updateYearDropdown()">
+      <option value="" selected>選択してください</option>
+      <!-- ここにグレードのオプションが追加される -->
+    </select>
+    <br>
+
+    <label for="year">年式：</label>
+    <select id="year" name="year">
+      <option value="" selected>選択してください</option>
+      <!-- ここに年式のオプションが追加される -->
+    </select>
+    <br>
+
+    <input placeholder="走行距離[km]" name="mileage" type="int"/>
+    <br>
+
+    <input value="市場価格を予測" type="submit"/>
+  </form>
+  <script>
+    function updateCarDropdown() {
+      var selectedOption = document.getElementById("maker").value;
+      var optionsArray = []; // オプションを格納する配列
+
+      // 選択された値をサーバーに送信し、結果を取得
+      fetch(`/get_cars?selected_option=${selectedOption}`)
+        .then(response => response.json())
+        .then(data => {
+          // サーバーから取得したデータを使用してオプションを更新
+          optionsArray = data.options;
+          var car = document.getElementById("car");
+          car.innerHTML = ""; // リセット
+          optionsArray.forEach(function (option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            car.appendChild(optionElement);
+          });
+        });
+    }
+
+    function updateGradeDropdown() {
+      var selectedOption = document.getElementById("car").value;
+      var optionsArray = []; // オプションを格納する配列
+
+      // 選択された値をサーバーに送信し、結果を取得
+      fetch(`/get_grades?selected_option=${selectedOption}`)
+        .then(response => response.json())
+        .then(data => {
+          // サーバーから取得したデータを使用してオプションを更新
+          optionsArray = data.options;
+          var grade = document.getElementById("grade");
+          grade.innerHTML = ""; // リセット
+          optionsArray.forEach(function (option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            grade.appendChild(optionElement);
+          });
+        });
+    }
+
+    function updateYearDropdown() {
+      var selectedOption = document.getElementById("grade").value;
+      var optionsArray = []; // オプションを格納する配列
+
+      // 選択された値をサーバーに送信し、結果を取得
+      fetch(`/get_years?selected_option=${selectedOption}`)
+        .then(response => response.json())
+        .then(data => {
+          // サーバーから取得したデータを使用してオプションを更新
+          optionsArray = data.options;
+          var year = document.getElementById("year");
+          year.innerHTML = ""; // リセット
+          optionsArray.forEach(function (option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            year.appendChild(optionElement);
+          });
+        });
+    }
+  </script>
+</body>
+</html>
