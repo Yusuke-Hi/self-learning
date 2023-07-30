@@ -1,2 +1,2 @@
 # self-learning
-recode self learning.
+ポートフォリオとして、アウトプットを記録していきます。
