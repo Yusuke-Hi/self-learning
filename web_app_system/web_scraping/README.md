@@ -37,8 +37,26 @@ Cloud Functionsのページに移動し、"ファンクションを作成"ボタ
 先人や教科書にならい、us-west1を選択しました。\
 トリガー：Cloud Pub/Subに設定\
 トピック：後でCloud Schedulerで紐付ける部分です。\
-すでにある場合は選択して、ない場合は作成します。\
+すでにある場合は選択して、ない場合は作成します。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/3292138d-e358-4abc-a3ab-23d0b4d469e2" width=600>
+
+Runtime, build, connections and security settingsをクリックして、スペックを設定します。\
+スクレイピングの実行時間を考慮して、割当メモリとタイムアウトを最大に設定しました。\
+実行内容によってはタイムアウトエラーになるので気をつけてください。\
+その他はデフォルト設定です。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67b2c2db-502b-4b5d-b9d6-b39fabeff6fd" width=400>
+
+コードの設定に移ります。\
+ランタイムでPythonを選択します。\
+コード内で起点となる関数名をエントリポイントに設定します。\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=400>
+
+main.pyに実行するコードを入力します。/
+また、requirements.txtに使用するライブラリを入力します。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=400>
+
 
 
