@@ -34,7 +34,8 @@ Webアプリとしてはシンプルなもので、中古車の情報を選択/�
 # システム構成
 全体のシステム構成はGCPの各サービスを利用して以下の図のようになっています。\
 大きくわけて、データ基盤、機械学習モデリング、Webアプリとなっています。\
-各部の構成については各ディレクトリ内にまとめています。
+各部の構成については同ディレクトリ内のマークダウンファイルにまとめています。\
+(web_scrapingの説明.md, Getdata_modeling_uploadの説明.md, web_appの説明.md)
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/6a4c19be-0d07-4f9d-92e4-8e2ab29a7e52" width=800>
 
