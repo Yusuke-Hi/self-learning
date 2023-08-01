@@ -4,7 +4,7 @@
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a4a96c6d-97f1-45e6-a00c-4a8194812da2" width=600>
 
 ## Bigquery
-このシステムのゴールであるBigqueryから説明していきます。\
+このシステムのゴールであるBigqueryの設定から解説します。\
 ※新しいプロジェクトの作成は事前に実施しています。
 
 以下のようにBigqueryのページに移動し、データセットの作成、テーブルの作成を行います。
@@ -25,7 +25,7 @@
 下に進んで"テーブルを作成"ボタンをクリックして完了です。
 
 ## Cloud Functions
-スクレイピングを実行するCloud Functionsについて説明していきます。\
+スクレイピングを実行するCloud Functionsの設定について解説します。\
 Cloud Functionsのページに移動し、"ファンクションを作成"ボタンをクリックします。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8d9d71b7-32fb-4d08-a568-1a7e6e60dea5" width=600>\
@@ -51,12 +51,37 @@ Runtime, build, connections and security settingsをクリックして、スペ�
 コードの設定に移ります。\
 ランタイムでPythonを選択します。\
 コード内で起点となる関数名をエントリポイントに設定します。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=600>\
 
-main.pyに実行するコードを入力します。/
-また、requirements.txtに使用するライブラリを入力します。
+main.pyに実行するコードを入力します。\
+また、requirements.txtに使用するライブラリを入力します。\
+"デプロイ"ボタンを押してデプロイします。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>\
 
+## Cloud Scheduler
+スクレイピングのトリガーを送信するCloud Schedulerの設定について解説します。\
+Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをクリックします。
 
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b7fc42c1-f92c-4f3a-a279-54c15efc5518" width=600>\
+
+ジョブの名前：わかりやすい名前をつけました。\
+リージョン：us-west1(オレゴン)を選択しました。\
+説明：見返した時にわかるように簡潔な文章にしました。\
+頻度：週に1回、金曜日の12:00に設定しました。\
+タイムゾーン：日本標準時に設定しました。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/289c2722-1564-4b5d-8fec-09c200f68344" width=400>\
+
+ターゲット タイプでPub/Subを選択します。\
+次にCloud Functionsで設定したトピックを選択して、実行するFunctionを指定します。\
+メッセージは不要なので、{}としています。\
+"作成"ボタンをクリックして完了です。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7f498a26-da7c-4fce-a1cd-54c0989bbdbb" width=400>\
+
+これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。\
+
+# スクレイピングコード
+最後にスクレイピングコードについて解説します。
 
