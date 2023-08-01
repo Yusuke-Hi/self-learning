@@ -83,7 +83,15 @@ Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをク
 これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。\
 
 # スクレイピングコード
-最後にスクレイピングコードについて解説します。
+同ディレクトリ内に保存しているコードを再掲します。
+全体の構成としてはスクレイピングの実行、データフレームの作成、データクリーニング、データ挿入からなり、それぞれ関数になっています。\
+最後のmain関数がエントリポイントとなっており、上記4つの内容を順に実行しています。\
+※Pub/Subのエントリポイントとなる関数は引数を2つ設定する必要があります。
+
+スクレイピング：requests, BeautifulSoupを使用しています。\
+データフレームの作成：スクレイピングで取得したデータに日付を追加しています。\
+データクリーニング：記号や漢字の削除、必要な部分だけを抽出しています。\
+データの挿入：google-cloud-bigqueryを用いて、事前に作成したBigqueryのテーブルにデータを挿入しています。
 
     import pandas as pd
     import requests
@@ -202,3 +210,5 @@ Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをク
         df = create_dataframe(p_li, maker_list, name_list, grade_list, year_list, mileage_list)#データフレーム作成
         df_cleaned = clean_df(df).dropna()#データクリーニング(前処理)
         bigquery_insert(df_cleaned)#bigqueryにデータを挿入
+
+# 所感
