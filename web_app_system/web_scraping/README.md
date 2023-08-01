@@ -9,27 +9,31 @@
 
 以下のようにBigqueryのページに移動し、データセットの作成、テーブルの作成を行います。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>
 
+\
 今回はスクレイピングしたデータを格納するため、ソースを空のテーブルにします。\
 その他、任意のproject_id, dataset_name, table_nameを入力します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>
 
+\
 格納する予定のデータのスキーマを追加していきます。\
 任意のフィールド名、データ型、モードを入力します。\
 ここではSQLでの取り出しを考慮して、スクレイピングを実行した日付のスキーマを追加しています。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>
 
+\
 下に進んで"テーブルを作成"ボタンをクリックして完了です。
 
 ## Cloud Functions
 スクレイピングを実行するCloud Functionsの設定について解説します。\
 Cloud Functionsのページに移動し、"ファンクションを作成"ボタンをクリックします。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8d9d71b7-32fb-4d08-a568-1a7e6e60dea5" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8d9d71b7-32fb-4d08-a568-1a7e6e60dea5" width=600>
 
+\
 環境：スペックは第一世代<第二世代です。\
 今回は第一世代で十分でした。\
 関数名：わかりやすい関数名をつけました。\
@@ -39,51 +43,57 @@ Cloud Functionsのページに移動し、"ファンクションを作成"ボタ
 トピック：後でCloud Schedulerで紐付ける部分です。\
 すでにある場合は選択して、ない場合は作成します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/3292138d-e358-4abc-a3ab-23d0b4d469e2" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/3292138d-e358-4abc-a3ab-23d0b4d469e2" width=600>
 
+\
 Runtime, build, connections and security settingsをクリックして、スペックを設定します。\
 スクレイピングの実行時間を考慮して、割当メモリとタイムアウトを最大に設定しました。\
 実行内容によってはタイムアウトエラーになるので気をつけてください。\
 その他はデフォルト設定です。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67b2c2db-502b-4b5d-b9d6-b39fabeff6fd" width=400>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67b2c2db-502b-4b5d-b9d6-b39fabeff6fd" width=400>
 
+\
 コードの設定に移ります。\
 ランタイムでPythonを選択します。\
 コード内で起点となる関数名をエントリポイントに設定します。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=600>
 
+\
 main.pyに実行するコードを入力します。\
 また、requirements.txtに使用するライブラリを入力します。\
 "デプロイ"ボタンを押してデプロイします。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>
 
 ## Cloud Scheduler
 スクレイピングのトリガーを送信するCloud Schedulerの設定について解説します。\
 Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをクリックします。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b7fc42c1-f92c-4f3a-a279-54c15efc5518" width=600>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b7fc42c1-f92c-4f3a-a279-54c15efc5518" width=600>
 
+\
 ジョブの名前：わかりやすい名前をつけました。\
 リージョン：us-west1(オレゴン)を選択しました。\
 説明：見返した時にわかるように簡潔な文章にしました。\
 頻度：週に1回、金曜日の12:00に設定しました。\
 タイムゾーン：日本標準時に設定しました。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/289c2722-1564-4b5d-8fec-09c200f68344" width=400>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/289c2722-1564-4b5d-8fec-09c200f68344" width=400>
 
+\
 ターゲット タイプでPub/Subを選択します。\
 次にCloud Functionsで設定したトピックを選択して、実行するFunctionを指定します。\
 メッセージは不要なので、{}としています。\
 "作成"ボタンをクリックして完了です。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7f498a26-da7c-4fce-a1cd-54c0989bbdbb" width=400>\
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7f498a26-da7c-4fce-a1cd-54c0989bbdbb" width=400>
 
-これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。\
+\
+これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。
 
 # スクレイピングコード
-同ディレクトリ内に保存しているコードを再掲します。
+同ディレクトリ内に保存しているコードを再掲します。\
 全体の構成としてはスクレイピングの実行、データフレームの作成、データクリーニング、データ挿入からなり、それぞれ関数になっています。\
 最後のmain関数がエントリポイントとなっており、上記4つの内容を順に実行しています。\
 ※Pub/Subのエントリポイントとなる関数は引数を2つ設定する必要があります。
@@ -212,3 +222,7 @@ Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをク
         bigquery_insert(df_cleaned)#bigqueryにデータを挿入
 
 # 所感
+まずはローカルでwebスクレイピングコードを作成することから初めましたが、本格的にスクレイピングをしたのは初めてだったため、試行錯誤の繰り返しでした。/
+Cloud FunctionsやCloud Schedulerに関しては全く触ったことがなかったため、エラーとの戦いでした。\
+ようやくBigqueryにデータを挿入できたときは思わず声をあげてガッツポーズしてしまいました。\
+このパートではスクレイピング、Cloud Functions、Cloud Scheduler、pythonによるBigqueryの操作を一貫して学ぶことができました。
