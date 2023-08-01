@@ -5,22 +5,22 @@
 
 ## Bigquery
 このシステムのゴールであるBigqueryから説明していきます。\
-※新しいプロジェクトの作成は事前に実施しています。\
+※新しいプロジェクトの作成は事前に実施しています。
 
 以下のようにBigqueryのページに移動し、データセットの作成、テーブルの作成を行います。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>\
 
 今回はスクレイピングしたデータを格納するため、ソースを空のテーブルにします。\
 その他、任意のproject_id, dataset_name, table_nameを入力します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>\
 
 格納する予定のデータのスキーマを追加していきます。\
 任意のフィールド名、データ型、モードを入力します。\
 ここではSQLでの取り出しを考慮して、スクレイピングを実行した日付のスキーマを追加しています。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>\
 
 下に進んで"テーブルを作成"ボタンをクリックして完了です。
 
@@ -28,7 +28,7 @@
 スクレイピングを実行するCloud Functionsについて説明していきます。\
 Cloud Functionsのページに移動し、"ファンクションを作成"ボタンをクリックします。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8d9d71b7-32fb-4d08-a568-1a7e6e60dea5" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/8d9d71b7-32fb-4d08-a568-1a7e6e60dea5" width=600>\
 
 環境：スペックは第一世代<第二世代です。\
 今回は第一世代で十分でした。\
@@ -39,24 +39,24 @@ Cloud Functionsのページに移動し、"ファンクションを作成"ボタ
 トピック：後でCloud Schedulerで紐付ける部分です。\
 すでにある場合は選択して、ない場合は作成します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/3292138d-e358-4abc-a3ab-23d0b4d469e2" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/3292138d-e358-4abc-a3ab-23d0b4d469e2" width=600>\
 
 Runtime, build, connections and security settingsをクリックして、スペックを設定します。\
 スクレイピングの実行時間を考慮して、割当メモリとタイムアウトを最大に設定しました。\
 実行内容によってはタイムアウトエラーになるので気をつけてください。\
 その他はデフォルト設定です。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67b2c2db-502b-4b5d-b9d6-b39fabeff6fd" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67b2c2db-502b-4b5d-b9d6-b39fabeff6fd" width=400>\
 
 コードの設定に移ります。\
 ランタイムでPythonを選択します。\
 コード内で起点となる関数名をエントリポイントに設定します。\
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a6dd30a3-cd19-4c4c-a1c3-4e137d4c6da5" width=600>
 
 main.pyに実行するコードを入力します。/
 また、requirements.txtに使用するライブラリを入力します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>
 
 
 
