@@ -82,8 +82,9 @@ Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをク
 
 これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。\
 
-    # スクレイピングコード
-    最後にスクレイピングコードについて解説します。
+# スクレイピングコード
+最後にスクレイピングコードについて解説します。
+
     import pandas as pd
     import requests
     from bs4 import BeautifulSoup
@@ -93,8 +94,8 @@ Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをク
 
     def scraping():
         #1p目のurlと2p以降のベースurl
-        first_url = "https://www.bigmotor.co.jp/bigmotor2/search/search2.php?            manufacturer2=all&manufacturer=&cars=&grade=&type2=&yearb=&yeare=&mileageb=&mileagee=&priceb=&pricee=&state=&shop=&drive=&mission=&car_inspection=&cars=&    keywords=&imported="
-        base_url = "https://www.bigmotor.co.jp/bigmotor2/search/search2.php?    manufacturer2=all&manufacturer=&cars=&grade=&type2=&yearb=&yeare=&mileageb=&mileagee=&priceb=&pricee=&state=&shop=&drive=&mission=&car_inspection=&keywor    ds=&imported=&page="
+        first_url = "https://www.bigmotor.co.jp/bigmotor2/search/search2.php?manufacturer2=all&manufacturer=&cars=&grade=&type2=&yearb=&yeare=&mileageb=&mileagee=&priceb=&pricee=&state=&shop=&drive=&mission=&car_inspection=&cars=&keywords=&imported="
+        base_url = "https://www.bigmotor.co.jp/bigmotor2/search/search2.php?manufacturer2=all&manufacturer=&cars=&grade=&type2=&yearb=&yeare=&mileageb=&mileagee=&priceb=&pricee=&state=&shop=&drive=&mission=&car_inspection=&keywords=&imported=&page="
     
         #pageを指定
         start_page = 1
