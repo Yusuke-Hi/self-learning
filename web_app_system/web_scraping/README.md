@@ -3,29 +3,28 @@
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/d48137d3-a909-450d-bbd9-fe50410e839a" width=400>
 
-## Bigquery
-このシステムのゴールであるBigqueryの設定から解説します。\
-※新しいプロジェクトの作成は事前に実施しています。
+## Cloud Scheduler
+スクレイピングのトリガーを送信するCloud Schedulerの設定について解説します。\
+Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをクリックします。
 
-以下のようにBigqueryのページに移動し、データセットの作成、テーブルの作成を行います。
-
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b7fc42c1-f92c-4f3a-a279-54c15efc5518" width=600>
 
 \
-今回はスクレイピングしたデータを格納するため、ソースを空のテーブルにします。\
-その他、任意のproject_id, dataset_name, table_nameを入力します。
+ジョブの名前：わかりやすい名前をつけました。\
+リージョン：us-west1(オレゴン)を選択しました。\
+説明：見返した時にわかるように簡潔な文章にしました。\
+頻度：週に1回、金曜日の12:00に設定しました。\
+タイムゾーン：日本標準時に設定しました。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>
-
-\
-格納する予定のデータのスキーマを追加していきます。\
-任意のフィールド名、データ型、モードを入力します。\
-ここではSQLでの取り出しを考慮して、スクレイピングを実行した日付のスキーマを追加しています。
-
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/289c2722-1564-4b5d-8fec-09c200f68344" width=400>
 
 \
-下に進んで"テーブルを作成"ボタンをクリックして完了です。
+ターゲット タイプでPub/Subを選択します。\
+次にCloud Functionsで設定したトピックを選択して、実行するFunctionを指定します。\
+メッセージは不要なので、{}としています。\
+"作成"ボタンをクリックして完了です。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7f498a26-da7c-4fce-a1cd-54c0989bbdbb" width=400>
 
 ## Cloud Functions
 スクレイピングを実行するCloud Functionsの設定について解説します。\
@@ -66,31 +65,29 @@ main.pyに実行するコードを入力します。\
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0322fd14-5872-4f82-8ed7-abc2c33fa15b" width=600>
 
-## Cloud Scheduler
-スクレイピングのトリガーを送信するCloud Schedulerの設定について解説します。\
-Cloud Schedulerのページに移動して、"ジョブを作成"ボタンをクリックします。
+## Bigquery
+このシステムのゴールであるBigqueryの設定について解説します。\
+※新しいプロジェクトの作成は事前に実施しています。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b7fc42c1-f92c-4f3a-a279-54c15efc5518" width=600>
+以下のようにBigqueryのページに移動し、データセットの作成、テーブルの作成を行います。
 
-\
-ジョブの名前：わかりやすい名前をつけました。\
-リージョン：us-west1(オレゴン)を選択しました。\
-説明：見返した時にわかるように簡潔な文章にしました。\
-頻度：週に1回、金曜日の12:00に設定しました。\
-タイムゾーン：日本標準時に設定しました。
-
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/289c2722-1564-4b5d-8fec-09c200f68344" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/02b734f1-ceb3-443a-a4e6-5b6e8d4c1439" width=600>
 
 \
-ターゲット タイプでPub/Subを選択します。\
-次にCloud Functionsで設定したトピックを選択して、実行するFunctionを指定します。\
-メッセージは不要なので、{}としています。\
-"作成"ボタンをクリックして完了です。
+今回はスクレイピングしたデータを格納するため、ソースを空のテーブルにします。\
+その他、任意のproject_id, dataset_name, table_nameを入力します。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/7f498a26-da7c-4fce-a1cd-54c0989bbdbb" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b300296c-1e23-4e8c-b9a5-e90635bc10e4" width=600>
 
 \
-これで、スクレイピングを定期実行する環境と格納先からなるデータ基盤を構築できました。
+格納する予定のデータのスキーマを追加していきます。\
+任意のフィールド名、データ型、モードを入力します。\
+ここではSQLでの取り出しを考慮して、スクレイピングを実行した日付のスキーマを追加しています。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/0f175b9a-6942-439e-8b08-3500030d2b41" width=600>
+
+\
+下に進んで"テーブルを作成"ボタンをクリックして完了です。
 
 # スクレイピングコード
 同ディレクトリ内に保存しているコードを再掲します。\
