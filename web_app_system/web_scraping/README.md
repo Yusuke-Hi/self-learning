@@ -1,7 +1,7 @@
 # 【データ基盤】スクレイピングからデータ格納までのシステム
 データを取得し、データベースに格納するまでのシステム構成は以下のようになっています。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/a4a96c6d-97f1-45e6-a00c-4a8194812da2" width=600>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/d48137d3-a909-450d-bbd9-fe50410e839a" width=400>
 
 ## Bigquery
 このシステムのゴールであるBigqueryの設定から解説します。\
