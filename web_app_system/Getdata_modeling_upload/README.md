@@ -1,1 +1,27 @@
+# 【機械学習モデリング】Bigqueryからのデータ取り出しと機械学習モデルの格納までのシステム
+SQLでテーブルからデータを取り出し、機械学習モデルを構築、モデルの格納までのアーキテクチャは以下のようになっています。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2abaff84-d867-4911-807c-a7ebff82ad87" width=400>
+
+
+## Cloud Storage
+構築した機械学習モデル、エンコーダー、データフレームを格納するCloud Storageの設定について解説します。\
+※事前に新規プロジェクトを作成して、そこで操作を行っています。\
+以下のようにCloud Storageのバケットページに移動し"作成"ボタンをクリックします。\
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/1dbafd82-fa3b-4a8b-a3f0-3d1a8ebe0bcb" width=600>
+
+\
+バケットに名前をつけて、作成します。\
+このバケット名はコードの中で使用します。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/1becbb87-dbfc-46f1-95a4-4460ee4d2539" width=600>
+
+## Cloud Functions
+Pythonコードを実行するCloud Functionsの設定について解説します。\
+Cloud Functionsのページに移動して、"ファンクションを作成するボタンを"
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/dcf0aebe-5eef-4695-a137-1c4327d23eaf" width=600>
+
+
 
