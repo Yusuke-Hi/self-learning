@@ -72,9 +72,9 @@ Cloud Functionsにリクエストを送信するCloud Schedulerの設定につ�
 ・google-cloud-bigqueryを用いてSQLを実行してデータを取得\
 ・取得したデータをデータフレーム化\
 ・ダミー変数化\
-機械学習モデリング：RandomForestRegressorでモデリング
-データアップロード：\
-モデルとエンコーダーはpickleファイルとしてCloud Storageに上書き保存\
+機械学習モデリング：RandomForestRegressorでモデリング\
+・データアップロード：\
+・モデルとエンコーダーはpickleファイルとしてCloud Storageに上書き保存\
 データフレームはcsvファイルとしてCloud Storageに上書き保存\
 ※Cloud Storage上に事前に作成したバケットを使用
 
