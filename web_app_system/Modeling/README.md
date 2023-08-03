@@ -1,4 +1,4 @@
-![image](https://github.com/Yusuke-Hi/self-learning/assets/131725916/b32ebf08-c2d7-4fc2-9dcd-bf690cdf5089)# 【機械学習モデリング】Bigqueryからのデータ取り出しと機械学習モデルの格納までのシステム
+# 【機械学習モデリング】Bigqueryからのデータ取り出しと機械学習モデルの格納までのシステム
 SQLでテーブルからデータを取り出し、機械学習モデルを構築、モデルの格納までのアーキテクチャは以下のようになっています。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2abaff84-d867-4911-807c-a7ebff82ad87" width=400>
