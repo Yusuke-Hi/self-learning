@@ -36,7 +36,7 @@ Runtime, build, connections and security settingsではメモリとCPUを適当�
 上記で述べたようにタイムアウトを3600秒と最大にしています。\
 次へをクリックして、コードの設定に移ります。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b6d87745-734c-4858-83da-2569a0abf9f8" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b6d87745-734c-4858-83da-2569a0abf9f8" width=600>
 
 \
 Pythonを選択し、起点となる関数名をエントリポイントに入力します。\
