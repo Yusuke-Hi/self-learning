@@ -19,16 +19,6 @@ main.py, static, templatesは一般的なものですが、app.yaml, cron.yaml, 
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/cda4d5f5-ebe2-466e-bb28-d46b216e4a8c" width=200>
 
-app.yamlがあるディレクトリで以下のコードを実行することで、Webアプリをデプロイできます。
-    
-    gcloud app deploy
-
-同様にcron.yamlがあるディレクトリで以下のコードを実行することで、cronジョブをデプロイできます。
-
-    gcloud app deploy cron.yaml
-
-app.yaml, cron.yamlの中身は以下のようになっています。
-
 app.yaml
 
       #GAEの設定ファイル。
@@ -38,6 +28,19 @@ app.yaml
       runtime: python38
       entrypoint: gunicorn -b :$PORT main:app
 
+
+app.yamlがあるディレクトリで以下のコマンドを実行することで、Webアプリをデプロイできます。
+    
+    gcloud app deploy
+
+デプロイしたあとは以下のコマンドでウェブアプリにアクセスして、動作を確認できます。
+
+    gcloud app browse
+
+動作がおかしい場合やそもそも起動しない場合は以下のコマンドでログを確認できます。
+
+    gcloud app logs tail -s default
+
 cron.yaml
 
       cron:
@@ -45,3 +48,36 @@ cron.yaml
        url: /reflection  # Flaskアプリで処理したいエンドポイントのURL
        schedule: every friday 13:30 # 週に1回実行、毎週金曜日の13:30
        timezone: Asia/Tokyo  # タイムゾーンを設定（日本のタイムゾーンを使用）
+       
+同様にcron.yamlがあるディレクトリで以下のコマンドを実行することで、cronジョブをデプロイできます。
+
+    gcloud app deploy cron.yaml
+    
+正常にデプロイが成功していればCloud SchedulerのApp Engineのcronジョブのタブにジョブが作成されます。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/859ecc0f-1d11-43c4-96c2-5b75d4b24ce3" width=800>
+
+cronジョブが正常に動作するか確認したい場合は右側の縦3点をクリックして、ジョブを矯正実行することができます。
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/67e552c2-3af0-4df2-add8-b12113be590b" width=800>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
