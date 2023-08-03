@@ -166,6 +166,6 @@ Cloud Functionsにリクエストを送信するCloud Schedulerの設定につ�
         return 'Model training and upload completed.'
 
 # 所感
-スクレイピングと重なる部分がいくつかあったため、システム構築をスムーズにできました。\
+データ基盤構築と重なる部分がいくつかあったため、システム構築をスムーズにできました。\
 GCPに少しずつなれてきたということでしょうか。\
 それでもPython上でのSQL実行やHTTPリクエスト、Cloud Storageへのアップロードなど、多くことを経験することができました。
