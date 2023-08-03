@@ -18,3 +18,30 @@ GoogleAppEngineを使って作成したWebアプリをデプロイするとこ�
 main.py, static, templatesは一般的なものですが、app.yaml, cron.yaml, requirementes.txtなどを用意する必要があります。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/cda4d5f5-ebe2-466e-bb28-d46b216e4a8c" width=200>
+
+app.yamlがあるディレクトリで以下のコードを実行することで、Webアプリをデプロイできます。
+    
+    gcloud app deploy
+
+同様にcron.yamlがあるディレクトリで以下のコードを実行することで、cronジョブをデプロイできます。
+
+    gcloud app deploy cron.yaml
+
+app.yaml, cron.yamlの中身は以下のようになっています。
+
+app.yaml
+
+      #GAEの設定ファイル。
+      #インスタンスクラスやスケーリングの条件などを記載する
+      #runtimeは必須パラメータ
+      #entrypointはcronジョブを起動するために必要
+      runtime: python38
+      entrypoint: gunicorn -b :$PORT main:app
+
+cron.yaml
+
+      cron:
+      - description: "Weekly task"  # cronジョブの説明
+       url: /reflection  # Flaskアプリで処理したいエンドポイントのURL
+       schedule: every friday 13:30 # 週に1回実行、毎週金曜日の13:30
+       timezone: Asia/Tokyo  # タイムゾーンを設定（日本のタイムゾーンを使用）
