@@ -19,7 +19,7 @@ SQLでテーブルからデータを取り出し、機械学習モデルを構�
 
 ## Cloud Functions
 Pythonコードを実行するCloud Functionsの設定について解説します。\
-Cloud Functionsのページに移動して、"ファンクションを作成するボタンを"
+Cloud Functionsのページに移動して、ファンクションを作成するボタンをクリックします。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/dcf0aebe-5eef-4695-a137-1c4327d23eaf" width=600>
 
