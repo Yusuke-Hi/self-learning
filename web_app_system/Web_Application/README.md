@@ -17,4 +17,4 @@ GoogleAppEngineを使って作成したWebアプリをデプロイするとこ�
 ディレクトリ構造は以下のようになっています。\
 main.py, static, templatesは一般的なものですが、app.yaml, cron.yaml, requirementes.txtなどを用意する必要があります。
 
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/cda4d5f5-ebe2-466e-bb28-d46b216e4a8c" width=400>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/cda4d5f5-ebe2-466e-bb28-d46b216e4a8c" width=200>
