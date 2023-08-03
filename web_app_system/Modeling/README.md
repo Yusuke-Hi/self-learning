@@ -1,4 +1,4 @@
-# 【機械学習モデリング】Bigqueryからのデータ取り出しと機械学習モデルの格納までのシステム
+![image](https://github.com/Yusuke-Hi/self-learning/assets/131725916/b32ebf08-c2d7-4fc2-9dcd-bf690cdf5089)# 【機械学習モデリング】Bigqueryからのデータ取り出しと機械学習モデルの格納までのシステム
 SQLでテーブルからデータを取り出し、機械学習モデルを構築、モデルの格納までのアーキテクチャは以下のようになっています。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/2abaff84-d867-4911-807c-a7ebff82ad87" width=400>
@@ -38,12 +38,35 @@ Runtime, build, connections and security settingsではメモリとCPUを適当�
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/b6d87745-734c-4858-83da-2569a0abf9f8" width=400>
 
+\
 Pythonを選択し、起点となる関数名をエントリポイントに入力します。\
 コードをmain.pyに、ライブラリとバージョンをrequirements.txtに入力し、デプロイします。
 
 <image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/6d5a0bc7-8e59-4aa9-8063-8961dd548fab" width=400>
 
+## Cloud Scheduler
+Cloud Functionsにリクエストを送信するCloud Schedulerの設定について解説します。\
+下図のようにCloud Schedulerのページに移動し、"ジョブを作成"ボタンをクリックします。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/918f2f03-b3dd-49ff-8c89-d8ba283cc46d" width=400>
+
+\
+名前、リージョン、説明、頻度、タイムゾーンを設定します。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/1076dd1f-dd15-4eb4-85cc-e92bcdadacf8" width=400>
+
+\
+「実行内容を構成する」ではターゲットタイプをHTTPにしています。\
+また、URLではCloud Functionsでデプロイした際に作成されるURLを使用します。\
+作成ボタンをクリックします。
+
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/6daa3122-4eeb-40c2-9daf-947e63aa8f83" width=400>
+
+# Pythonコード
+同ディレクトリ内にあるPythonコードを再掲します。\
+このコードをCloud Functionsのmain.pyに実装しました。
 
 
 
+# 所感
 
