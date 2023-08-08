@@ -5,6 +5,10 @@ import datetime
 
 from google.cloud import bigquery as gbq # BigQueryのテーブルにデータを挿入する
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 def scraping():
     #1p目のurlと2p以降のベースurl
     first_url = "https://www.bigmotor.co.jp/bigmotor2/search/search2.php?manufacturer2=all&manufacturer=&cars=&grade=&type2=&yearb=&yeare=&mileageb=&mileagee=&priceb=&pricee=&state=&shop=&drive=&mission=&car_inspection=&cars=&keywords=&imported="
@@ -109,9 +113,33 @@ def bigquery_insert(df_cleaned):
     table = client.get_table("project_id.database_name.table_name")
     client.insert_rows(table, df_cleaned.to_dict('records'))
 
+# メール送信関数の作成
+def send_email(subject, message):
+    sender_email = "send_email@gmail.com"
+    receiver_email = "receive_email@example.com"
+    password = "email_password"
+
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(message, 'plain'))
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, msg.as_string())
+    server.quit()
+
 # Cloud Functionで実行する関数
 def main(request, context):
-    p_li, maker_list, name_list, grade_list, year_list, mileage_list = scraping()#スクレイピング実行
-    df = create_dataframe(p_li, maker_list, name_list, grade_list, year_list, mileage_list)#データフレーム作成
-    df_cleaned = clean_df(df).dropna()#データクリーニング(前処理)
-    bigquery_insert(df_cleaned)#bigqueryにデータを挿入
+    try:
+        p_li, maker_list, name_list, grade_list, year_list, mileage_list = scraping()#スクレイピング実行
+        df = create_dataframe(p_li, maker_list, name_list, grade_list, year_list, mileage_list)#データフレーム作成
+        df_cleaned = clean_df(df).dropna()#データクリーニング(前処理)
+        bigquery_insert(df_cleaned)#bigqueryにデータを挿入
+    except Exception as e:
+        error_message = "An error occurred: " + str(e)
+        send_email("Cloud Function Error", error_message)
+#スクレイピングに失敗した際にメールで通知する
