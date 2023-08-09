@@ -1,21 +1,22 @@
-
+/* 共通のスタイル */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #E8EBE7;
+  background-color: #E8EBE7; /* bodyの背景色を紺色に設定 */
+  color: black; /* テキストカラーを白に設定 */
 }
 
 h1 {
-  background-color: #76A1B6;
-  color: #fff;
+  background-color: #76A1B6; /* h1の背景色を紺色に設定 */
+  color: #fff; /* h1のテキストカラーを白に設定 */
   padding: 20px;
   text-align: center;
 }
 
 h2 {
-  color: black; 
+  color: black; /* h2のテキストカラーを青色に設定 */
   margin: 20px 0;
 }
 
@@ -39,12 +40,16 @@ select, input[type="int"] {
 }
 
 input[type="submit"] {
-  background-color: #C9BE72; 
-  color: #fff; 
+  background-color: #C9BE72; /* ボタンの背景色を緑色に設定 */
+  color: #fff; /* ボタンのテキストカラーを白に設定 */
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: #c8c29d; 
+  background-color: #c8c29d; /* ボタンのhover時の背景色をダークグリーンに設定 */
+}
+
+.flash-messages {
+  color:red;
 }
 
