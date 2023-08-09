@@ -11,38 +11,64 @@
   <form method="POST" action="/prediction">
     <label for="maker">メーカー：</label>
     <select id="maker" name="maker" onchange="updateCarDropdown()">
-      <option value="" selected>選択してください</option>
+      <option value="" selected>{{ maker_base }}</option>
       {% for maker in maker_list %}
-      <option value="{{ maker }}">{{ maker }}</option>
+      <option value="{{ maker }}" {% if session["selected_maker"] == maker %}selected{% endif %}>{{ maker }}</option>
       {% endfor %}
     </select>
     <br>
 
     <label for="car">車種：</label>
     <select id="car" name="car" onchange="updateGradeDropdown()">
-      <option value="" selected>選択してください</option>
-      <!-- ここに車種のオプションが追加される -->
+      <option value="" selected>{{ car_base }}</option>
+      {% if session["selected_maker"] %}
+        {% for car in df[df["maker"] == session["selected_maker"]]["car"].unique()|sort %}
+          <option value="{{ car }}" {% if session["selected_car"] == car %}selected{% endif %}>{{ car }}</option>
+        {% endfor %}
+      {% endif %}
     </select>
     <br>
 
     <label for="grade">グレード：</label>
     <select id="grade" name="grade" onchange="updateYearDropdown()">
-      <option value="" selected>選択してください</option>
-      <!-- ここにグレードのオプションが追加される -->
+     <option value="" selected>{{ grade_base }}</option>
+      {% if session["selected_car"] %}
+        {% for grade in df[df["car"] == session["selected_car"]]["grade"].unique()|sort %}
+         <option value="{{ grade }}" {% if session["selected_grade"] == grade %}selected{% endif %}>{{ grade }}</option>
+        {% endfor %}
+      {% endif %}
     </select>
     <br>
 
     <label for="year">年式：</label>
     <select id="year" name="year">
-      <option value="" selected>選択してください</option>
-      <!-- ここに年式のオプションが追加される -->
+      <option value="" selected>{{ year_base }}</option>
+      {% if session["selected_grade"] %}
+        {% for year in df[df["grade"] == session["selected_grade"]]["year"].unique()|sort %}
+          <option value="{{ year }}" {% if session["selected_year"] == year %}selected{% endif %}>{{ year }}</option>
+        {% endfor %}
+      {% endif %}
     </select>
     <br>
 
-    <input placeholder="走行距離[km]" name="mileage" type="int"/>
+    <input placeholder="走行距離[km]" name="mileage" value="{{ session['selected_mileage'] if 'selected_mileage' in session else '' }}">
     <br>
 
     <input value="市場価格を予測" type="submit"/>
+    <br>
+    
+    <!--エラーメッセージを表示-->
+    {% with messages = get_flashed_messages() %}
+     {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li class="flash-message">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+  
   </form>
   <script>
     function updateCarDropdown() {
