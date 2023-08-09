@@ -10,8 +10,7 @@
 Webアプリとしてはシンプルなもので、中古車の情報を選択/入力することで、中古車の市場価格予測を返します。\
 情報を選択/入力するページ、予測結果を表示するページ、情報に不備があった場合にエラーを表示するページの3ページからなります。
 
-
-<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/e555370a-76b2-420a-86cd-74416b7e4ec0)" width=800>
+<image src="https://github.com/Yusuke-Hi/self-learning/assets/131725916/4f00bfa2-331f-428a-a38c-668737cdd086" width=800>
 
 ## Webアプリの目的
 このWebアプリの目的はユーザーが中古車の市場相場を把握することです。\
