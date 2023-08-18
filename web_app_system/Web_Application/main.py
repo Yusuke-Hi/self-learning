@@ -4,15 +4,16 @@ import pandas as pd
 import numpy as np
 from google.cloud import storage
 from io import BytesIO
+import datetime
 
 # Google Cloud Storageクライアントのセットアップ
-storage_client = storage.Client(project="ploject_id")
+storage_client = storage.Client(project="project_id")
 bucket_name = 'bucket_name'
 
 # Google Cloud Storageからpickleファイルを直接読み込む関数
 def load_pickle_from_cloudstorage(file_path):
     bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(file_path)
+    blob = bucket.blob(str(folder_name) + "/" + file_path)
     data = blob.download_as_bytes()
     with BytesIO(data) as f:
         pickledata = pickle.load(f)
@@ -21,10 +22,23 @@ def load_pickle_from_cloudstorage(file_path):
 # Google Cloud Storageからcsvファイルを直接読み込む関数
 def load_csv_from_cloudstorage(file_path):
     bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(file_path)
+    blob = bucket.blob(str(folder_name) + "/" + file_path)
     data = blob.download_as_bytes()
     dataframe = pd.read_csv(BytesIO(data)) 
     return dataframe
+
+def get_foldernames():
+    # バケットを取得
+    bucket = storage_client.get_bucket(bucket_name)
+    # バケット内のファイルをリストアップ
+    blobs = bucket.list_blobs(prefix="", delimiter="/")
+    dirs = []
+    for page in blobs.pages:
+        dirs.extend(page.prefixes)
+
+    # フォルダ名をリストとして取得
+    folder_names = [prefix.split("/")[0] for prefix in dirs]
+    return max(folder_names)
 
 # Flaskアプリのセットアップ
 app = Flask(__name__)
@@ -33,11 +47,13 @@ app.secret_key = 'pass'
 @app.route("/reflection")
 def reflect():
     with app.app_context():
+        global folder_name
+        folder_name = get_foldernames()
         global model, encoder, df
         model = load_pickle_from_cloudstorage("model.pkl")
         encoder = load_pickle_from_cloudstorage("encoder.pkl")
         df = load_csv_from_cloudstorage("data.csv")
-    return "Model, encoder, and df have been updated!"
+        return "Model, encoder, and df have been updated!"
 
 # メインページのルート
 @app.route("/")
@@ -117,7 +133,7 @@ def predict():
             price = model.predict(features)
             return render_template("result.html", price=int(price))
         
-        else:#flashで誤入力情報を表示
+        else:
             if (not request.form["maker"]) or request.form["maker"] == please_select:
                 flash("メーカーを選択してください。", "error")
             if (not request.form["car"]) or request.form["car"] == please_select:
